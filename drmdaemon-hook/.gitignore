@@ -1,0 +1,8 @@
+# build output that is rebuilt by build.sh (the stripped copy ships in template/lib/)
+src/main/cpp/libdrmdaemon-hook.so
+release/
+*.zip
+*.iml
+.gradle/
+.idea/
+.DS_Store

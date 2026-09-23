@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>DRM daemon Widevine</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><div class="eyebrow">ZYGISK NEXT · HAL HOOK</div><h1>Widevine ID</h1><p class="subtitle">配置 <code>deviceUniqueId</code> 的按应用 32 字节返回值</p></header>
+  <main>
+    <section class="card status-card"><div><span class="label">配置文件</span><code id="path">/data/adb/modules/drmdaemon-hook/config/targets.conf</code></div><span id="state" class="state">读取中…</span></section>
+    <section class="card">
+      <div class="section-title"><h2>规则</h2><button id="reload" class="button secondary">重新读取</button></div>
+      <div class="form-grid">
+        <label>应用包名<input id="package" autocomplete="off" placeholder="com.example.player"></label>
+        <label>设备 ID（64 位十六进制）<input id="deviceId" inputmode="text" maxlength="64" autocomplete="off" placeholder="0000000000000000000000000000000000000000000000000000000000000000"></label>
+      </div>
+      <div class="actions"><button id="add" class="button secondary">添加/更新规则</button><button id="remove" class="button danger">删除当前包名</button></div>
+      <div id="rules" class="rules"></div>
+    </section>
+    <section class="card">
+      <div class="section-title"><h2>原始配置</h2><button id="save" class="button primary">保存配置</button></div>
+      <textarea id="raw" spellcheck="false" aria-label="targets.conf"></textarea>
+      <p class="hint">格式：<code>v1|包名|deviceUniqueId|hex32|64位十六进制</code>。保存后由 Zygisk Next companion 进程（root）读取该文件并通过 unix socket 下发给 Widevine HAL，<strong>约 1 秒内生效，无需重启服务或设备</strong>。</p>
+    </section>
+    <section class="card diagnostics"><div class="section-title"><h2>注入诊断</h2><button id="logs" class="button secondary">刷新日志</button></div><pre id="log">点击“刷新日志”读取 drmdaemon-hook 日志。</pre></section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

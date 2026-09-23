@@ -1,0 +1,6 @@
+{
+  "title": "DRM daemon Widevine",
+  "windowResize": false,
+  "backHandler": false,
+  "exitConfirm": true
+}

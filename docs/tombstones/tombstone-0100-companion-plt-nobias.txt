@@ -1,0 +1,29 @@
+Process name is zn-companion64 drmdaemon-hook:libdrmdaemon-hook.so, not key_process
+09-18 01:00:22.873 22988 22988 F DEBUG   : keyProcess: 0
+09-18 01:00:22.873 22988 22988 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+09-18 01:00:22.873 22988 22988 F DEBUG   : Build fingerprint: 'OnePlus/OnePlus7TPro/OnePlus7TPro:12/SKQ1.211113.001/Q.202303230244:user/release-keys'
+09-18 01:00:22.873 22988 22988 F DEBUG   : Revision: '0'
+09-18 01:00:22.873 22988 22988 F DEBUG   : ABI: 'arm64'
+09-18 01:00:22.873 22988 22988 F DEBUG   : Timestamp: 2026-09-18 01:00:22.844459359+0800
+09-18 01:00:22.873 22988 22988 F DEBUG   : Process uptime: 0s
+09-18 01:00:22.873 22988 22988 F DEBUG   : Cmdline: zn-companion64 drmdaemon-hook:libdrmdaemon-hook.so
+09-18 01:00:22.873 22988 22988 F DEBUG   : pid: 1716, tid: 3205, name: mdaemon-hook.so  >>> zn-companion64 drmdaemon-hook:libdrmdaemon-hook.so <<<
+09-18 01:00:22.873 22988 22988 F DEBUG   : uid: 0
+09-18 01:00:22.873 22988 22988 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xe7800
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x0  0000000000000000  x1  0000000000000001  x2  0000006ff72fdb08  x3  0000000000000000
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x4  0000000000000000  x5  b40000707aa46004  x6  b40000707aa3c3ba  x7  3030303030303030
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x8  7b9a173522c0c2d1  x9  7b9a173522c0c2d1  x10 00000000000f4240  x11 0000000000000001
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x12 000000707aa3f888  x13 6574636172616863  x14 0000006ff72fd6f8  x15 0000a37d6f299ece
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x16 0000006ffa978f78  x17 00000000000e7800  x18 0000006ff660c000  x19 0000006ff72fed00
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x20 000000707aff5000  x21 0000006ff72fed00  x22 00000000000006b4  x23 00000000000006b8
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x24 0000006ff72fed00  x25 0000006ff72fed00  x26 0000006ff72ff008  x27 00000000000fb000
+09-18 01:00:22.873 22988 22988 F DEBUG   :     x28 0000006ff7207000  x29 0000006ff72febf0
+09-18 01:00:22.873 22988 22988 F DEBUG   :     lr  0000006ffa8f3270  sp  0000006ff72fdb50  pc  00000000000e7800  pst 0000000060000000
+09-18 01:00:22.873 22988 22988 F DEBUG   : backtrace:
+09-18 01:00:22.873 22988 22988 F DEBUG   :       #00 pc 00000000000e7800  <unknown>
+09-18 01:00:22.873 22988 22988 F DEBUG   :       #01 pc 000000000006f26c  /data/adb/modules/drmdaemon-hook/lib/libdrmdaemon-hook.so (readFull(int, void*, unsigned long)+136)
+09-18 01:00:22.873 22988 22988 F DEBUG   :       #02 pc 0000000000076ff0  /data/adb/modules/drmdaemon-hook/lib/libdrmdaemon-hook.so (_ZNSt6__ndk16threadC2IRFviEJRiETnNS_9enable_ifIXntsr7is_sameIu14__remove_cvrefIT_ES0_EE5valueEiE4typeELi0EEEOS6_DpOT0_+144)
+09-18 01:00:22.873 22988 22988 F DEBUG   :       #03 pc 0000000000076fbc  /data/adb/modules/drmdaemon-hook/lib/libdrmdaemon-hook.so (_ZNSt6__ndk16threadC2IRFviEJRiETnNS_9enable_ifIXntsr7is_sameIu14__remove_cvrefIT_ES0_EE5valueEiE4typeELi0EEEOS6_DpOT0_+92)
+09-18 01:00:22.873 22988 22988 F DEBUG   :       #04 pc 0000000000076e3c  /data/adb/modules/drmdaemon-hook/lib/libdrmdaemon-hook.so (std::__ndk1::default_delete<std::__ndk1::tuple<std::__ndk1::unique_ptr<std::__ndk1::__thread_struct, std::__ndk1::default_delete<std::__ndk1::__thread_struct> >, void (*)()> >::operator()[abi:nn210000](std::__ndk1::tuple<std::__ndk1::unique_ptr<std::__ndk1::__thread_struct, std::__ndk1::default_delete<std::__ndk1::__thread_struct> >, void (*)()>*) const+44)
+09-18 01:00:22.873 22988 22988 F DEBUG   :       #05 pc 00000000000deb44  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*)+264) (BuildId: bbbdeb7c87c74f1491f92c6e605095b0)
+09-18 01:00:22.874 22988 22988 F DEBUG   :       #06 pc 000000000007b2fc  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+68) (BuildId: bbbdeb7c87c74f1491f92c6e605095b0)

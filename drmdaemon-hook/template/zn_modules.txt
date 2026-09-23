@@ -1,0 +1,9 @@
+# `companion` marks that this library also provides the companion entry used by
+# connectCompanion(). Syntax verified against the official sample:
+#   name=adbd companion lib/lib${moduleId}.so
+# NOTE: the library must export zn_companion_module / zygisk_companion_entry,
+# otherwise Zygisk Next drops this declaration and nothing gets injected.
+path=/odm/bin/hw/android.hardware.drm@1.3-service.widevine companion lib/libdrmdaemon-hook.so
+# Fallback for devices placing the service under /vendor.
+path=/vendor/bin/hw/android.hardware.drm@1.3-service.widevine companion lib/libdrmdaemon-hook.so
+name=android.hardware.drm@1.3-service.widevine companion lib/libdrmdaemon-hook.so

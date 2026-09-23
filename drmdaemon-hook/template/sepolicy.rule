@@ -1,0 +1,28 @@
+# The Widevine HAL does NOT run as AOSP `hal_drm` on this device. The audit log
+# of the failing config read shows:
+#
+#   scontext=u:r:vendor_hal_drm_widevine:s0
+#   tcontext=u:object_r:system_data_file:s0:c512,c768 tclass=dir permissive=0
+#
+# So the rule below must name `vendor_hal_drm_widevine`, otherwise the inline
+# hook never installs (no execmem) and the log stays at
+# "loaded 0 deviceUniqueId rule(s)".
+
+# inline hook writes a trampoline -> needs executable memory in the target.
+allow vendor_hal_drm_widevine self:process execmem;
+
+# NOTE: no file access is needed from the HAL anymore. targets.conf is read by
+# the Zygisk Next companion process (a child of the root daemon) and pushed
+# over a unix socket, so both the /data traversal and the MLS c512,c768
+# problem disappear. Do NOT add rules like
+#   allow vendor_hal_drm_widevine system_data_file:dir search;
+#   typeattribute vendor_hal_drm_widevine mlstrustedsubject;
+# unless you deliberately want the DRM HAL to read all of /data.
+
+# Other ROMs use AOSP naming. Uncomment ONLY the one matching the scontext in
+# your own audit log - naming an undefined type is an error for that line on
+# some magiskpolicy/ksud versions:
+#
+# allow hal_drm          self:process execmem;
+# allow hal_drm_widevine self:process execmem;
+# allow vendor_hal_drm   self:process execmem;

@@ -1,0 +1,6 @@
+id=drmdaemon-hook
+name=DRM daemon Widevine override
+version=1.1.0
+versionCode=2
+author=f401
+description=Override Widevine deviceUniqueId per app by hooking the vendor DRM HAL (Zygisk Next + companion, hot reload, KernelSU WebUI).
